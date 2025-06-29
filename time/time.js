@@ -22,6 +22,17 @@ export function addTimeForAllRidders(sec) {
     allTime = sec;
 
 }
+export function timeLimit(time) {
+    if (time > 5) {
+        console.log("You got a fine 5 scconds");
+        return time + (5 / 100)
+    }
+}
+export function timeHint(time) {
+    console.log("You got a fine 5 scconds for hint");
+    return time + (5 / 100)
+
+}
 
 export function getTimeForAllRidders() {
     return allTime;

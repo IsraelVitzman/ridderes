@@ -1,9 +1,9 @@
 import readlineSync from 'readline-sync';
 
-import { getRiddersEesy, getRiddersMedum, getRiddersHard, getLangteEesy, getLangteMedum, getLangteHard } from './ridddles/index.js';
-import { namePlayer } from './classes/Player.js';
-import { startriderts } from './classes/Riddle.js';
-import { getSecondsForAsk, getTimeForAllRidders } from './time/time.js';
+import { getRiddersEesy, getRiddersMedum, getRiddersHard, getLangteEesy, getLangteMedum, getLangteHard } from '../ridddles/index.js';
+import { namePlayer } from '../classes/Player.js';
+import { startriderts } from '../classes/Riddle.js';
+import { getSecondsForAsk, getTimeForAllRidders, timeLimit } from '../time/time.js';
 
 
 class startGame {
@@ -39,7 +39,8 @@ class startGame {
         const game = new startriderts(result);
         game.ask();
 
-        const allTime = getTimeForAllRidders();
+        const temp = getTimeForAllRidders();
+        const allTime = timeLimit(temp)
         const average = getSecondsForAsk() / length;
 
         console.log(`allTime: ${allTime}`);

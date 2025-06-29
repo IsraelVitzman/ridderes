@@ -1,7 +1,7 @@
 import readlineSync from 'readline-sync';
 
 
-import { time, returnTime, addSecondsForAsk, addTimeForAllRidders } from '../time/time.js';
+import { time, returnTime, addSecondsForAsk, addTimeForAllRidders, timeHint } from '../time/time.js';
 
 export class startriderts {
 
@@ -18,8 +18,9 @@ export class startriderts {
         for (let ridder of this.ridders) {
 
             let answer = null;
-
-            const startTime = time()
+            let hint = null;
+            let start = null;
+            let startTime = time()
 
             console.log(ridder.id);
             console.log(ridder.name);
@@ -28,10 +29,19 @@ export class startriderts {
 
                 console.log(ridder.question);
                 answer = readlineSync.question("what your anser");
+                console.log(" i am hint   1");
+                console.log("else enter all key");
+                hint = readlineSync.question("are you hint ?");
+                switch (hint) {
+                    case "1":
+                        console.log(ridder.hint);
+                        startTime = timeHint(startTime)
+                        break
+                    default:
+                        break
+                }
 
-
-
-
+                start = null;
                 if (answer !== ridder.answer) {
 
                     console.log("this misstek... try agen");
