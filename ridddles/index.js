@@ -1,12 +1,30 @@
-import { r1 } from "./r1.js"
-import { r2 } from "./r2.js"
+import { esey1 } from "./riddesEesy/esey1.js"
+import { esey2 } from "./riddesEesy/esey2.js"
+import { hard1 } from "./riddesHard/hard1.js"
+import { medum1 } from "./riddesMedum/medum1.js"
 
-const ridders = [r1, r2]
+const riddersEesy = [esey1, esey2]
+const riddersMedum = [medum1]
+const riddersHard = [hard1]
 
-export function getRidders() {
-    return ridders
+export function getRiddersEesy() {
+    return riddersEesy
 }
 
-export function getLangte() {
-    return ridders.length
+export function getRiddersMedum() {
+    return riddersMedum
+}
+
+export function getRiddersHard() {
+    return riddersHard
+}
+
+export function getLangteEesy() {
+    return riddersEesy.length
+}
+export function getLangteMedum() {
+    return riddersMedum.length
+}
+export function getLangteHard() {
+    return riddersHard.length
 }

@@ -28,7 +28,7 @@ export class startriderts {
 
                 console.log(ridder.question);
                 answer = readlineSync.question("what your anser");
-                console.log(typeof answer);
+
 
 
 

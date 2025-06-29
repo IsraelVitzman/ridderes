@@ -1,21 +1,46 @@
 import readlineSync from 'readline-sync';
 
-import { getRidders } from './ridddles/index.js';
+import { getRiddersEesy, getRiddersMedum, getRiddersHard, getLangteEesy, getLangteMedum, getLangteHard } from './ridddles/index.js';
 import { namePlayer } from './classes/Player.js';
 import { startriderts } from './classes/Riddle.js';
 import { getSecondsForAsk, getTimeForAllRidders } from './time/time.js';
-import { getLangte } from './ridddles/index.js';
+
 
 class startGame {
     start() {
+        let result = null;
+        let length = null;
         console.log("Welcome to riddle Game");
         const name = readlineSync.question("What is your name");
 
-        const game = new startriderts(getRidders());
+        console.log("esey  1");
+        console.log("medum 2");
+        console.log("hard  3");
+        const difficultyLevel = readlineSync.question("choose  difficulty level ");
+        switch (difficultyLevel) {
+            case "1":
+                result = getRiddersEesy();
+                length = getLangteEesy();
+                break;
+
+            case "2":
+                result = getRiddersMedum();
+                length = getLangteMedum();
+                break
+
+            case "3":
+                result = getRiddersHard();
+                length = getLangteHard();
+                break
+
+            default:
+                break;
+        }
+        const game = new startriderts(result);
         game.ask();
 
         const allTime = getTimeForAllRidders();
-        const average = getSecondsForAsk() / getLangte();
+        const average = getSecondsForAsk() / length;
 
         console.log(`allTime: ${allTime}`);
         console.log(`average: ${average}`);

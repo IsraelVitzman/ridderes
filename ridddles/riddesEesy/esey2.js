@@ -1,6 +1,6 @@
-export const r2 = {
+export const esey2 = {
     "id": 2,
-    "name": "what your  last name",
+    "name": "how math",
     "question": "how math 1 plus 3",
     "answer": "4",
 
