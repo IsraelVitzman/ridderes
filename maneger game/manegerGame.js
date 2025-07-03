@@ -1,0 +1,34 @@
+import readlineSync from 'readline-sync';
+
+
+import { Player } from '../players/Player.js';
+
+import { getSecondsForQuestion, getTimeForAllRidders } from '../time/time.js';
+import { RaedRidders } from '../modles/read.js';
+import { Ridders } from '../Riddles/ridders.js';
+//טרי אקספט
+export async function ManagerGame() {
+
+    console.log("Welcome to riddle Game");
+    const namePlayer = readlineSync.question("What is your name");
+
+    const riddles = await RaedRidders();
+    Ridders(riddles);
+
+
+
+    const allTime = getTimeForAllRidders();
+    const averageTime = getSecondsForQuestion();//לחלק
+
+
+    console.log(`allTime: ${allTime}`);
+    console.log(`average: ${averageTime}`);
+
+    const player = new Player(namePlayer, averageTime, allTime);
+    player.add();
+
+}
+
+
+
+

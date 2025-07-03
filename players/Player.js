@@ -1,6 +1,6 @@
 
 
-export class namePlayer {
+export class Player {
     static list = []
 
     constructor(name, aveTime, allTime) {
@@ -10,10 +10,10 @@ export class namePlayer {
         this.aveTime = aveTime
     }
     add() {
-        namePlayer.list.push({ "name": this.name, "aveTime": this.aveTime, "allTime": this.allTime })
+        Player.list.push({ "name": this.name, "aveTime": this.aveTime, "allTime": this.allTime })
     }
     getList() {
-        return namePlayer.list
+        return Player.list
     }
 
 }

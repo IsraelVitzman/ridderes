@@ -9,31 +9,25 @@ export function returnTime(start, end) {
 const secondsList = [];
 let allTime = 0;
 
-export function addSecondsForAsk(sec) {
+
+export function addSecondsForQuestion(sec) {
     secondsList.push(sec);
 }
+export function getSecondsForQuestion() {
 
-export function getSecondsForAsk() {
     const sum = secondsList.reduce((acc, current) => acc + current, 0);
-    return sum;
+    return sum / secondsList.length; // ממוצע אמיתי
 }
+
 
 export function addTimeForAllRidders(sec) {
     allTime = sec;
 
 }
-export function timeLimit(time) {
-    if (time > 5) {
-        console.log("You got a fine 5 scconds");
-        return time + (5 / 100)
-    }
-}
-export function timeHint(time) {
-    console.log("You got a fine 5 scconds for hint");
-    return time + (5 / 100)
-
-}
-
 export function getTimeForAllRidders() {
     return allTime;
 }
+
+
+
+
