@@ -6,7 +6,7 @@ import { Player } from '../players/Player.js';
 import { getSecondsForQuestion, getTimeForAllRidders } from '../time/time.js';
 import { readAllRiddles } from '../modles/read.js';
 import { Ridders } from '../Riddles/ridders.js';
-//טרי אקספט
+
 export async function ManagerGame() {
 
     console.log("Welcome to riddle Game");

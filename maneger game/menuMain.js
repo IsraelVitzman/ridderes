@@ -67,5 +67,5 @@ export async function showMainMenu() {
 
 }
 
-// Run the menu
+
 showMainMenu();
