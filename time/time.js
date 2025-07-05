@@ -16,7 +16,7 @@ export function addSecondsForQuestion(sec) {
 export function getSecondsForQuestion() {
 
     const sum = secondsList.reduce((acc, current) => acc + current, 0);
-    return sum / secondsList.length; // ממוצע אמיתי
+    return sum / secondsList.length;
 }
 
 

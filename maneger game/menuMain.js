@@ -6,7 +6,11 @@ import { readAllRiddles } from '../modles/read.js'
 import { NewRiddle } from '../new riddle/newRiddle.js';
 
 export async function showMainMenu() {
-    console.log(`
+
+
+
+    while (true) {
+        console.log(`
 ==========================
 ✨ Main Menu ✨
 1. Play the game
@@ -18,7 +22,6 @@ export async function showMainMenu() {
     `);
 
 
-    while (true) {
         const choice = readlineSync.question('Choose an action (1-5): ');
         switch (choice) {
             case '1':

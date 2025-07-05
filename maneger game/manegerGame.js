@@ -13,7 +13,7 @@ export async function ManagerGame() {
     const namePlayer = readlineSync.question("What is your name");
 
     const riddles = await readAllRiddles();
-    Ridders(riddles);
+    await Ridders(riddles);
 
 
 

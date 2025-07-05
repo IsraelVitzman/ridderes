@@ -1,22 +1,16 @@
 [
   {
-    "name": "jon"
-  },
-  {
-    "name": "jon"
-  },
-  {
     "id": "1",
-    "name": "2",
-    "hint": "3",
-    "question": "5",
-    "answer": "6"
+    "name": "plos",
+    "hint": ">5",
+    "question": "2+2?",
+    "answer": "4"
   },
   {
-    "id": "1",
-    "name": "2",
-    "hint": "3",
-    "question": "6",
-    "answer": "55"
+    "id": "2",
+    "name": "minus",
+    "hint": "<4",
+    "question": "3+2?",
+    "answer": "5"
   }
 ]

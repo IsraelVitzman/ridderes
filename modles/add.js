@@ -14,7 +14,9 @@ export async function AddRiddle(riddle) {
 
         await writeFile(filePath, JSON.stringify(listRiddle, null, 2), 'utf-8');
         console.log("Riddle saved successfully!");
+
     } catch (err) {
+
         console.error("Failed to write riddle:", err);
     }
 }

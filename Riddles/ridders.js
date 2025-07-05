@@ -4,6 +4,7 @@ import { riddle } from '../riddle/riddle.js';
 export function Ridders(ridders) {
 
     const startTime = time();
+
     for (var ridder of ridders) {
         riddle(ridder)
     }
