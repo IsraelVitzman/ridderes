@@ -2,7 +2,7 @@ import readlineSync from 'readline-sync';
 import { ManagerGame } from './manegerGame.js'
 import { AddRiddle } from '../modles/add.js'
 import { UpdateRiddle } from '../modles/update.js'
-import { RaedRidders } from '../modles/read.js'
+import { readAllRiddles } from '../modles/read.js'
 import { NewRiddle } from '../new riddle/newRiddle.js';
 
 export async function showMainMenu() {
@@ -33,12 +33,14 @@ export async function showMainMenu() {
                 const hint = readlineSync.question('Enter hint: ');
                 const question = readlineSync.question('Enter the question: ');
                 const answer = readlineSync.question('Enter the answer: ');
-                await AddRiddle(NewRiddle(id, name, hint, question, answer))
+                const newRiddle = NewRiddle(id, name, hint, question, answer)
+                await AddRiddle(newRiddle)
                 break;
 
             case '3':
                 console.log('📜 Showing all riddles...');
-                console.log(RaedRidders());
+                const riddles = await readAllRiddles();
+                console.log("Riddles:", riddles);
                 break;
 
             case '4':

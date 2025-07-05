@@ -1,15 +1,31 @@
 import { readFile } from "node:fs/promises";
 
-export async function RaedRidders() {
-    const filePath = "./dataRiddles/riddles.txt";
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+export async function readAllRiddles() {
+
+    const filePath = path.join(__dirname, "..", "dataRiddles", "riddles.txt");
 
     try {
+
         const data = await readFile(filePath, "utf-8");
+        if (data.trim().length === 0) {
+            return [];
+        }
         return JSON.parse(data);
+
     } catch (err) {
-        console.error(" Invalid error");
-        throw err;
+
+        console.error("invalid error", err);
+        return [];
     }
 }
+
+
+
 
 

@@ -4,7 +4,7 @@ import readlineSync from 'readline-sync';
 import { Player } from '../players/Player.js';
 
 import { getSecondsForQuestion, getTimeForAllRidders } from '../time/time.js';
-import { RaedRidders } from '../modles/read.js';
+import { readAllRiddles } from '../modles/read.js';
 import { Ridders } from '../Riddles/ridders.js';
 //טרי אקספט
 export async function ManagerGame() {
@@ -12,13 +12,13 @@ export async function ManagerGame() {
     console.log("Welcome to riddle Game");
     const namePlayer = readlineSync.question("What is your name");
 
-    const riddles = await RaedRidders();
+    const riddles = await readAllRiddles();
     Ridders(riddles);
 
 
 
     const allTime = getTimeForAllRidders();
-    const averageTime = getSecondsForQuestion();//לחלק
+    const averageTime = getSecondsForQuestion();
 
 
     console.log(`allTime: ${allTime}`);

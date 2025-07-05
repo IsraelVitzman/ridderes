@@ -1,27 +1,22 @@
-import { Save, Import } from "./fileHelpers.js";
+import { writeFile, readFile, } from "node:fs/promises";
 
-export async function AddRiddle(data) {
-    const filePath = "./dataRiddles/riddles.txt";
-
+export async function AddRiddle(riddle) {
     try {
-        // שלב 1: קריאה קיימת
-        const riddlesRaw = await Import(filePath);
-        let riddles = [];
+        const filePath = "./dataRiddles/riddles.txt";
+        let listRiddle = []
 
-        try {
-            riddles = JSON.parse(riddlesRaw);
-        } catch (err) {
-            console.warn("File was empty or not valid JSON. Starting fresh.");
+        const data = await readFile(filePath, 'utf-8');
+        if (data.length > 0) {
+            listRiddle = JSON.parse(data);
         }
 
+        listRiddle.push(riddle)
 
-        riddles.push(data);
-
-        await Save(filePath, JSON.stringify(riddles, null, 2));
-
-        console.log("✅ Riddle added successfully.");
+        await writeFile(filePath, JSON.stringify(listRiddle, null, 2), 'utf-8');
+        console.log("Riddle saved successfully!");
     } catch (err) {
-        console.error("❌ Failed to add riddle:", err.message);
+        console.error("Failed to write riddle:", err);
     }
 }
+
 
